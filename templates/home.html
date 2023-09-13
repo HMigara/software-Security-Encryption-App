@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome</title>
+    <title>Welcome</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS if needed -->
+    <style>
+        /* Custom styles go here */
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-<h1 style="justify-content: center;">Welcome to Encrtyption App</h1>
+<div class="container text-center">
+    <h1>Welcome to Encryption App</h1>
+    <p>Secure your messages with our encryption service.</p>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <a href="{{url_for('login')}}" class="btn btn-primary btn-block">Login Page</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4 offset-md-4">
+            <a href="{{url_for('page')}}" class="btn btn-success btn-block">Register Page</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4 offset-md-4">
+            <a href="{{url_for('message')}}" class="btn btn-info btn-block">Send Message Page</a>
+        </div>
+    </div>
+</div>
 
-<a href="{{url_for('login')}}">Login Page</a><br>
-<a href="{{url_for('page')}}">Register Page</a><br>
-<a href="{{url_for('message')}}"> send Message Page</a><br>
-
-
-
+<!-- Add Bootstrap JS and jQuery scripts at the end of the body -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
