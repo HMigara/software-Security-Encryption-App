@@ -53,7 +53,7 @@
 
 
 <div class="container center-form">
-    <form method="post" class="text-center">
+    <form method="post" class="text-center" action="#">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" name="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -61,7 +61,7 @@
         </div>
          <div class="form-group">
             <label for="exampleInputEmail1">UserName</label>
-            <input type="email" name="UserName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name">
+            <input type="text" name="UserName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
@@ -74,7 +74,7 @@
         <div class="form-group">
             <label for="inputState">Select Role</label>
             <small id="emailHelp" class="form-text text" style="color: red">Selecting Role is importent*</small>
-            <select id="inputState" class="form-control">
+            <select id="inputState" name="inputState" class="form-control">
                 <option selected>Select Role</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>
@@ -83,6 +83,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
 
 </body>
 </html>
