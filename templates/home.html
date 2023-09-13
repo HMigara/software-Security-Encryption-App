@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <!-- Add Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -8,37 +10,67 @@
     <style>
         /* Custom styles go here */
         body {
-            background-color: #f8f9fa;
+            background-color: #3498db; /* Nice blue color */
+            color: #fff; /* White text color for better contrast */
         }
         .container {
             margin-top: 100px;
+        }
+        .jumbotron {
+            background-color: #2980b9; /* Slightly darker blue for the jumbotron */
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            display: none;
+        }
+        .btn-custom {
+            background-color: #fff; /* White background for buttons */
+            color: #3498db; /* Blue text color for buttons */
+            border: 2px solid #3498db; /* Blue border for buttons */
+            border-radius: 25px;
+            padding: 10px 30px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition on hover */
+        }
+        .btn-custom:hover {
+            background-color: #3498db; /* Blue background on hover */
+            color: #fff; /* White text on hover */
+            border-color: #fff; /* White border on hover */
         }
     </style>
 </head>
 <body>
 <div class="container text-center">
-    <h1>Welcome to Encryption App</h1>
-    <p>Secure your messages with our encryption service.</p>
-    <div class="row">
-        <div class="col-md-4 offset-md-4">
-            <a href="{{url_for('login')}}" class="btn btn-primary btn-block">Login Page</a>
+    <div class="jumbotron" id="jumbotron">
+        <h1 class="display-4">Welcome to Encryption App</h1>
+        <p class="lead">Secure your messages with our encryption service.</p>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 offset-md-2">
+            <a href="{{url_for('login')}}" class="btn btn-success btn-custom btn-block">Login</a><br>
+        </div>
+        <div class="col-md-4">
+            <a href="{{url_for('page')}}" class="btn btn-success btn-custom btn-block">Register</a>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-md-4 offset-md-4">
-            <a href="{{url_for('page')}}" class="btn btn-success btn-block">Register Page</a>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-md-4 offset-md-4">
-            <a href="{{url_for('message')}}" class="btn btn-info btn-block">Send Message Page</a>
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <a href="{{url_for('message')}}" class="btn btn-info btn-custom btn-block">Send a Message</a>
         </div>
     </div>
 </div>
 
-<!-- Add Bootstrap JS and jQuery scripts at the end of the body -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<!-- Add Bootstrap JS and your custom JavaScript for the animation -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    // jQuery animation to fade in the jumbotron
+    $(document).ready(function () {
+        $('#jumbotron').fadeIn(1500); // Adjust the duration (in milliseconds) as needed
+    });
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add jQuery library -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 </body>
 </html>
