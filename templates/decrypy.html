@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Decrypted Page</title>
 
     <!-- Add Bootstrap CSS link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -85,26 +85,15 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header animate-fade-in">
-                    <h3 class="mb-0">Encryption App</h3>
+                    <h3 class="mb-0">Decrypted Message</h3>
                 </div>
                 <div class="card-body animate-fade-in">
-                    <form method="post" action="#" onsubmit="return validateForm()">
+                    <form method="#" action="#">
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1" class="form-label">Type the message you need to encrypt:</label>
-                            <textarea class="form-control" name="msgfield" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <label for="exampleFormControlTextarea1" class="form-label">Your decrypted Message is Here:</label>
+                            <textarea class="form-control" name="txtfiel" id="exampleFormControlTextarea1" rows="3">{{decryptmsg}}</textarea>
                         </div>
-                        <div class="form-group ">
-                <label for="inputState">Role</label>
-                <small id="roleHelp" class="form-text text-muted">Selecting Role is important*</small>
-                <select id="inputState" name="inputState" class="form-control">
-                    <option value="">Select Role</option>
-                    <option value="Admin">Admin</option>
-                    <option value="User">User</option>
-                </select>
-                <span id="roleError" style="color: red" class="error"></span>
-                        <div class="text-center">
-                            <button type="submit"  class="btn btn-custom animate-fade-in">Send</button>
-                        </div>
+                    
                     </form>
                 </div>
             </div>
@@ -132,22 +121,3 @@
         element.style.animationDelay = `${Math.random() * 1}s`; // Randomize animation delays
     });
 </script>
-
-<script>
-        function validateForm() {
-            // Reset error messages
-            document.getElementById("roleError").textContent = "";
-
-            
-            const role = document.getElementById("inputState").value;
-
-            // Validate role
-            if (!role) {
-                document.getElementById("roleError").textContent = "Please select a role";
-                return false;
-            }
-
-            // If all validations pass, the form will submit
-            return true;
-        }
-    </script>

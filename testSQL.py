@@ -23,9 +23,9 @@ def registerUser(email, username, password, role):
         # If an error occurs, rollback the transaction
         connection.rollback()
         print("Error registering user:", str(e))
-    finally:
-        # Close the database connection
-        connection.close()
+    # finally:
+    #     # Close the database connection
+    #     connection.close()
         
 def loginUser(Email, password,role):
     try:
@@ -49,7 +49,7 @@ def loginUser(Email, password,role):
         # Handle any errors that might occur during the database operation
         print("Error during login:", str(e))
         return False
-    finally:
+    #finally:
         # Close the database connection
-        connection.close()
+        #connection.close()
 

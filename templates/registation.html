@@ -53,36 +53,92 @@
 
 
 <div class="container center-form">
-    <form method="post" class="text-center" action="#">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-         <div class="form-group">
-            <label for="exampleInputEmail1">UserName</label>
-            <input type="text" name="UserName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User name">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="password" name="confirmpw" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
-        </div>
-        <div class="form-group">
-            <label for="inputState">Select Role</label>
-            <small id="emailHelp" class="form-text text" style="color: red">Selecting Role is importent*</small>
-            <select id="inputState" name="inputState" class="form-control">
-                <option selected>Select Role</option>
-                <option value="Admin">Admin</option>
-                <option value="User">User</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+        <form method="post" class="text-center" action="#" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <span id="emailError" style="color: red" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputUsername">Username</label>
+                <input type="text" name="UserName" class="form-control" id="exampleInputUsername" placeholder="Username">
+                <span id="usernameError" style="color: red" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <span id="passwordError" style="color: red" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputConfirmPassword">Confirm Password</label>
+                <input type="password" name="confirmpw" class="form-control" id="exampleInputConfirmPassword" placeholder="Confirm Password">
+                <span id="confirmPasswordError" style="color: red" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="inputState">Select Role</label>
+                <small id="roleHelp" class="form-text text-muted">Selecting Role is important*</small>
+                <select id="inputState" name="inputState" class="form-control">
+                    <option value="">Select Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+                <span id="roleError" style="color: red" class="error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+<script>
+        function validateForm() {
+            // Reset error messages
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("usernameError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+            document.getElementById("confirmPasswordError").textContent = "";
+            document.getElementById("roleError").textContent = "";
+
+            // Get form values
+            const email = document.getElementById("exampleInputEmail1").value;
+            const username = document.getElementById("exampleInputUsername").value;
+            const password = document.getElementById("exampleInputPassword1").value;
+            const confirmPassword = document.getElementById("exampleInputConfirmPassword").value;
+            const role = document.getElementById("inputState").value;
+
+            // Validate email (simple example)
+            if (!email || !email.includes("@")) {
+                document.getElementById("emailError").textContent = "Invalid email address";
+                return false;
+            }
+
+            // Validate username (simple example)
+            if (!username || username.length < 5) {
+                document.getElementById("usernameError").textContent = "Username must be at least 5 characters";
+                return false;
+            }
+
+            // Validate password (simple example)
+            if (!password || password.length < 6) {
+                document.getElementById("passwordError").textContent = "Password must be at least 6 characters";
+                return false;
+            }
+
+            // Validate confirm password
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").textContent = "Passwords do not match";
+                return false;
+            }
+
+            // Validate role
+            if (!role) {
+                document.getElementById("roleError").textContent = "Please select a role";
+                return false;
+            }
+
+            // If all validations pass, the form will submit
+            return true;
+        }
+    </script>
 
 
 </body>
